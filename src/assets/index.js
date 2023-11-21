@@ -27,6 +27,8 @@ import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
+import MUCH from "./company/MUCH.png";
+import pharmacy from "./company/pharmacy.png";
 
 import Little_lemon_html_css from "./Little_lemon_html_css.png";
 import Personal_site from "./Personal_site.png";
@@ -63,6 +65,8 @@ export {
   shopify,
   starbucks,
   tesla,
+  MUCH,
+  pharmacy,
   Little_lemon_html_css,
   Personal_site,
   Little_lemon_jsx,

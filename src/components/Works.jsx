@@ -5,10 +5,11 @@ import { github } from '../assets'
 import { SectionWrapper } from '../hoc'
 import { projects } from '../constants'
 import { fadeIn, textVariant } from "../utils/motion"
+import { HiStatusOnline } from "react-icons/hi";
 
 
 
-const ProjectCard = ({ index, name, description, tags, image, source_code_link }) => {
+const ProjectCard = ({ index, name, description, tags, image, source_code_link, live_code_link }) => {
   return (
     <motion.div variants={fadeIn('up', 'spring', index * 0.5, 0.75)}>
       <Tilt
@@ -28,7 +29,7 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link }
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
             <div
               onClick={() => window.open(source_code_link, '_blank')}
-              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer hover:w-12 hover:h-12 transition-all"
             >
               <img
                 src={github}
@@ -39,14 +40,11 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link }
             </div>
             <div
               // this one is for the live demo
-              onClick={() => window.open(source_code_link, '_blank')}
-              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+              onClick={() => window.open(live_code_link, '_blank')}
+              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer hover:w-12 hover:h-12 transition-all"
             >
-              <img
-                src={github}
-                alt="github"
-                className="w-1/2 h-1/2 object-contain"
-              />
+              <HiStatusOnline className="h-1/2 w-1/2" />
+
 
             </div>
           </div>

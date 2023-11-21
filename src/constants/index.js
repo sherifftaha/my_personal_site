@@ -20,6 +20,8 @@ import {
     starbucks,
     tesla,
     shopify,
+    MUCH,
+    pharmacy,
     Little_lemon_html_css,
     Personal_site,
     Little_lemon_jsx,
@@ -34,10 +36,10 @@ export const navLinks = [
         id: "about",
         title: "About",
     },
-    // {
-    //     id: "work",
-    //     title: "Work",
-    // },
+    {
+        id: "work",
+        title: "Work",
+    },
     {
         id: "contact",
         title: "Contact",
@@ -93,57 +95,57 @@ const technologies = [
 
 const experiences = [
     {
-        title: "React.js Developer",
-        company_name: "Starbucks",
-        icon: starbucks,
-        iconBg: "#383E56",
-        date: "March 2020 - April 2021",
-        points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
-    },
-    {
-        title: "React Native Developer",
-        company_name: "Tesla",
-        icon: tesla,
+        title: "IT support",
+        company_name: "Mansoura University Children Hospital",
+        icon: MUCH,
         iconBg: "#E6DEDD",
-        date: "Jan 2021 - Feb 2022",
+        date: "October 2020 - Present",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "Diagnose and resolve hardware and software issues; provide technical support for device and application problems.",
+            "Install, update, and troubleshoot software applications; assist users in navigating various programs.",
+            "Monitor and maintain computer networks; troubleshoot connectivity issues and implement solutions.",
+            "Stay updated on technological trends; pursue professional development for skill enhancement. Implement and manage backup solutions; develop and test disaster recovery plans. Streamline workflows through process optimization and evaluate advanced tools for technology integration.",
         ],
     },
     {
-        title: "Web Developer",
-        company_name: "Shopify",
-        icon: shopify,
-        iconBg: "#383E56",
-        date: "Jan 2022 - Jan 2023",
-        points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
-    },
-    {
-        title: "Full stack Developer",
-        company_name: "Meta",
-        icon: meta,
+        title: "Hospital Pharmacist",
+        company_name: "Mansoura University Children Hospital",
+        icon: MUCH,
         iconBg: "#E6DEDD",
-        date: "Jan 2023 - Present",
+        date: "September 2019 - October 2020",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "Dispense prescribed medications accurately, ensuring proper dosage and labeling.",
+            "Collaborate with healthcare teams to manage medication regimens and address potential interactions.",
+            "Provide patient education on medication usage, side effects, and general health practices.",
+            "Oversee regulatory compliance, including adherence to pharmacy laws and controlled substance management.",
         ],
     },
+    {
+        title: "Community Pharmacist",
+        company_name: "Al Tarshouby Pharmacy - Al Halawany Pharmacy ",
+        icon: pharmacy,
+        iconBg: "#E6DEDD",
+        date: "July 2017 - September 2019",
+        points: [
+            "Dispense medications accurately, providing clear instructions on usage and potential side effects.",
+            "Offer personalized health advice and information to customers on over-the-counter products.",
+            "Collaborate with healthcare providers to review and manage medication regimens for optimal patient outcomes.",
+            "Ensure compliance with pharmacy laws, maintain inventory, and address customer inquiries professionally.",
+        ],
+    },
+    // {
+    //     title: "Full stack Developer",
+    //     company_name: "Meta",
+    //     icon: meta,
+    //     iconBg: "#E6DEDD",
+    //     date: "Jan 2023 - Present",
+    //     points: [
+    //         "Developing and maintaining web applications using React.js and other related technologies.",
+    //         "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+    //         "Implementing responsive design and ensuring cross-browser compatibility.",
+    //         "Participating in code reviews and providing constructive feedback to other developers.",
+    //     ],
+    // },
 ];
 
 const testimonials = [
@@ -189,7 +191,8 @@ const projects = [
             },
         ],
         image: Little_lemon_html_css,
-        source_code_link: "https://github.com/",
+        source_code_link: "https://github.com/sherifftaha/Little_lemon_project_html-css",
+        live_code_link: "https://little-lemon-html-css-only.netlify.app"
     },
     {
         name: "Personal site",
@@ -214,7 +217,8 @@ const projects = [
             },
         ],
         image: Personal_site,
-        source_code_link: "https://github.com/",
+        source_code_link: "https://github.com/sherifftaha/personalSite1",
+        live_code_link: "https://react-chakra-formik-yup.netlify.app"
     },
     {
         name: "Restaurant website",
@@ -231,7 +235,8 @@ const projects = [
             },
         ],
         image: Little_lemon_jsx,
-        source_code_link: "https://github.com/",
+        source_code_link: "https://github.com/sherifftaha/Little_Lemon_Website_React",
+        live_code_link: "https://sh-little-lemon.netlify.app"
     },
     {
         name: "Dashboard",
@@ -252,7 +257,8 @@ const projects = [
             },
         ],
         image: Dashboard,
-        source_code_link: "https://github.com/",
+        source_code_link: "https://github.com/sherifftaha/dashboard-syncfusion",
+        live_code_link: "https://sh-dashboard-syncfusion.netlify.app"
     },
     {
         name: "Personal site 3D",
@@ -281,7 +287,8 @@ const projects = [
             },
         ],
         image: Personal_site_3d,
-        source_code_link: "https://github.com/",
+        source_code_link: "https://github.com/sherifftaha/my_personal_site",
+        live_code_link: "https://sherif-taha.netlify.app"
     },
 ];
 
