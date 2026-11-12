@@ -23,10 +23,6 @@ import threejs from "./tech/threejs.svg";
 import cpp from "./tech/cpp.svg";
 
 
-import meta from "./company/meta.png";
-import shopify from "./company/shopify.png";
-import starbucks from "./company/starbucks.png";
-import tesla from "./company/tesla.png";
 import MUCH from "./company/MUCH.png";
 import pharmacy from "./company/pharmacy.png";
 
@@ -61,10 +57,6 @@ export {
   typescript,
   cpp,
   threejs,
-  meta,
-  shopify,
-  starbucks,
-  tesla,
   MUCH,
   pharmacy,
   Little_lemon_html_css,

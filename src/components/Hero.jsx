@@ -17,8 +17,19 @@ const Hero = () => {
             Hi, I'm <span className='text-[#915eff]'>Sherif</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            I develop user interfaces <br className='sm:block hidden' /> and web applications.
+            Front-end developer with years of experience <br className='sm:block hidden' /> inside pharmacies and hospitals.
           </p>
+          <div className='sm:mt-8 mt-5 flex flex-wrap sm:gap-4 gap-3 relative z-10'>
+            <a href='#work' className='bg-[#915eff] hover:bg-[#7a45f0] text-white font-bold sm:py-3 py-2 sm:px-6 px-4 sm:text-[16px] text-[14px] rounded-xl transition-colors'>
+              See my projects
+            </a>
+            <a href='#contact' className='border-2 border-[#915eff] text-white font-bold sm:py-3 py-2 sm:px-6 px-4 sm:text-[16px] text-[14px] rounded-xl hover:bg-[#915eff]/20 transition-colors'>
+              Hire me
+            </a>
+            <a href='https://github.com/sherifftaha' target='_blank' rel='noopener noreferrer' className='sm:inline-block hidden text-secondary hover:text-white font-medium py-3 px-2 transition-colors'>
+              GitHub &rarr;
+            </a>
+          </div>
         </div>
       </div>
       <ComputersCanvas />

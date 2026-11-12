@@ -4,13 +4,12 @@ import { Points, PointMaterial, Preload, Sphere } from '@react-three/drei'
 
 
 import * as random from 'maath/random/dist/maath-random.esm'
-import { d } from 'maath/dist/index-0332b2ed.esm'
 
 
 const Stars = (props) => {
   const ref = useRef()
 
-  const sphere = random.inSphere(new Float32Array(5000), { radius: 1.2 })
+  const [sphere] = useState(() => random.inSphere(new Float32Array(6000), { radius: 1.2 }))
 
   useFrame((state, delta) => {
     ref.current.rotation.x -= delta / 10
@@ -53,4 +52,4 @@ const StarsCanvas = () => {
     </div>
   )
 }
-export default StarsCanvas
+export default StarsCanvas

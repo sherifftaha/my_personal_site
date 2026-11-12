@@ -48,10 +48,16 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
       >
-        I'm a skilled software developer with experience in TypeScript and
-        JavaScript, and expertise in frameworks like React, I'm a quick learner and collaborate closely with clients to
-        create efficient, scalable, and user-friendly solutions that solve
-        real-world problems. Let's work together to bring your ideas to life!
+        I started my career as a pharmacist, then moved into IT support at Mansoura
+        University Children Hospital, where I've spent years fixing the systems that
+        doctors, nurses and pharmacists rely on every day. Along the way I fell in love
+        with building software, and today I build fast, responsive interfaces with
+        React, TypeScript and Tailwind CSS.
+        <br /><br />
+        That path gives me something most front-end developers don't have: I know
+        what it's like to be the person using the software under pressure. I build
+        interfaces that are clear, reliable and easy to use, and I'm especially
+        interested in healthcare and health-tech products.
       </motion.p>
       <div className='mt-20 flex flex-wrap gap-10'>
         {services.map((service, index) => (

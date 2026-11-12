@@ -16,10 +16,6 @@ import {
     git,
     figma,
     docker,
-    meta,
-    starbucks,
-    tesla,
-    shopify,
     MUCH,
     pharmacy,
     Little_lemon_html_css,
@@ -48,8 +44,16 @@ export const navLinks = [
 
 const services = [
     {
-        title: " Front-end Web Developer",
+        title: "Front-end Web Developer",
         icon: web,
+    },
+    {
+        title: "Healthcare Domain Knowledge",
+        icon: mobile,
+    },
+    {
+        title: "IT & Systems Support",
+        icon: backend,
     },
 ];
 
@@ -133,115 +137,15 @@ const experiences = [
             "Ensure compliance with pharmacy laws, maintain inventory, and address customer inquiries professionally.",
         ],
     },
-    // {
-    //     title: "Full stack Developer",
-    //     company_name: "Meta",
-    //     icon: meta,
-    //     iconBg: "#E6DEDD",
-    //     date: "Jan 2023 - Present",
-    //     points: [
-    //         "Developing and maintaining web applications using React.js and other related technologies.",
-    //         "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-    //         "Implementing responsive design and ensuring cross-browser compatibility.",
-    //         "Participating in code reviews and providing constructive feedback to other developers.",
-    //     ],
-    // },
 ];
 
-const testimonials = [
-    {
-        testimonial:
-            "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-        name: "Sara Lee",
-        designation: "CFO",
-        company: "Acme Co",
-        image: "https://randomuser.me/api/portraits/women/4.jpg",
-    },
-    {
-        testimonial:
-            "I've never met a web developer who truly cares about their clients' success like Rick does.",
-        name: "Chris Brown",
-        designation: "COO",
-        company: "DEF Corp",
-        image: "https://randomuser.me/api/portraits/men/5.jpg",
-    },
-    {
-        testimonial:
-            "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-        name: "Lisa Wang",
-        designation: "CTO",
-        company: "456 Enterprises",
-        image: "https://randomuser.me/api/portraits/women/6.jpg",
-    },
-];
+const testimonials = [];
 
 const projects = [
     {
-        name: "Restaurant website",
-        description:
-            "A responsive website homepage of Little lemon restaurant, using only html and css.",
-        tags: [
-            {
-                name: "HTML",
-                color: "blue-text-gradient",
-            },
-            {
-                name: "CSS",
-                color: "pink-text-gradient",
-            },
-        ],
-        image: Little_lemon_html_css,
-        source_code_link: "https://github.com/sherifftaha/Little_lemon_project_html-css",
-        live_code_link: "https://little-lemon-html-css-only.netlify.app"
-    },
-    {
-        name: "Personal site",
-        description:
-            "Personal website built with React, Chakra, Formik, Yup.",
-        tags: [
-            {
-                name: "react",
-                color: "blue-text-gradient",
-            },
-            {
-                name: "Chakra",
-                color: "green-text-gradient",
-            },
-            {
-                name: "Formek",
-                color: "pink-text-gradient",
-            },
-            {
-                name: "Yup",
-                color: "yellow-text-gradient",
-            },
-        ],
-        image: Personal_site,
-        source_code_link: "https://github.com/sherifftaha/personalSite1",
-        live_code_link: "https://react-chakra-formik-yup.netlify.app"
-    },
-    {
-        name: "Restaurant website",
-        description:
-            "A responsive website of Little lemon restaurant, with table reservation form.",
-        tags: [
-            {
-                name: "react",
-                color: "blue-text-gradient",
-            },
-            {
-                name: "css",
-                color: "green-text-gradient",
-            },
-        ],
-        image: Little_lemon_jsx,
-        source_code_link: "https://github.com/sherifftaha/Little_Lemon_Website_React",
-        live_code_link: "https://sh-little-lemon.netlify.app"
-    },
-    {
         name: "Dashboard",
         description:
-            "A dashboard build with React, Syncfusion and tailwindcss libraries for interactive charts. It also contain full functional calendar and color picker and much more.",
+            "An admin dashboard built with React, Syncfusion and Tailwind CSS, with interactive charts, a working calendar, a kanban board and theme customization.",
         tags: [
             {
                 name: "react",
@@ -261,9 +165,53 @@ const projects = [
         live_code_link: "https://sh-dashboard-syncfusion.netlify.app"
     },
     {
+        name: "Restaurant website",
+        description:
+            "A responsive restaurant website in React, with a table reservation form and input validation.",
+        tags: [
+            {
+                name: "react",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "css",
+                color: "green-text-gradient",
+            },
+        ],
+        image: Little_lemon_jsx,
+        source_code_link: "https://github.com/sherifftaha/Little_Lemon_Website_React",
+        live_code_link: "https://sh-little-lemon.netlify.app"
+    },
+    {
+        name: "Personal site",
+        description:
+            "A personal website built with React and Chakra UI, with a validated contact form using Formik and Yup.",
+        tags: [
+            {
+                name: "react",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "Chakra",
+                color: "green-text-gradient",
+            },
+            {
+                name: "Formik",
+                color: "pink-text-gradient",
+            },
+            {
+                name: "Yup",
+                color: "yellow-text-gradient",
+            },
+        ],
+        image: Personal_site,
+        source_code_link: "https://github.com/sherifftaha/personalSite1",
+        live_code_link: "https://react-chakra-formik-yup.netlify.app"
+    },
+    {
         name: "Personal site 3D",
         description:
-            "A personal website with 3D interactive objects built using React, Framer, Three.js, Emailjs, tailwindcss and more.",
+            "This site: interactive 3D scenes with Three.js, animations with Framer Motion and a working contact form with EmailJS.",
         tags: [
             {
                 name: "react",
@@ -289,6 +237,24 @@ const projects = [
         image: Personal_site_3d,
         source_code_link: "https://github.com/sherifftaha/my_personal_site",
         live_code_link: "https://sherif-taha.netlify.app"
+    },
+    {
+        name: "Restaurant website",
+        description:
+            "A responsive restaurant homepage built from scratch with plain HTML and CSS.",
+        tags: [
+            {
+                name: "HTML",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "CSS",
+                color: "pink-text-gradient",
+            },
+        ],
+        image: Little_lemon_html_css,
+        source_code_link: "https://github.com/sherifftaha/Little_lemon_project_html-css",
+        live_code_link: "https://little-lemon-html-css-only.netlify.app"
     },
 ];
 
