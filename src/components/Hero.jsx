@@ -1,58 +1,43 @@
+import { label, profile } from "../data";
 
-import { motion } from 'framer-motion'
-import { styles } from '../styles'
-import { ComputersCanvas } from './canvas'
-const Hero = () => {
-  return (
-    <section className={`relative w-full h-screen mx-auto`}>
-
-      <div className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start  gap-5`}>
-
-        <div className='flex flex-col justify-center items-center mt-5'>
-          <div className='w-5 h-5 rounded-full bg-[#915eff]' />
-          <div className='w-1 sm:h-80 h-40 violet-gradient' />
-        </div>
-        <div>
-          <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className='text-[#915eff]'>Sherif</span>
-          </h1>
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            Front-end developer with years of experience <br className='sm:block hidden' /> inside pharmacies and hospitals.
-          </p>
-          <div className='sm:mt-8 mt-5 flex flex-wrap sm:gap-4 gap-3 relative z-10'>
-            <a href='#work' className='bg-[#915eff] hover:bg-[#7a45f0] text-white font-bold sm:py-3 py-2 sm:px-6 px-4 sm:text-[16px] text-[14px] rounded-xl transition-colors'>
-              See my projects
-            </a>
-            <a href='#contact' className='border-2 border-[#915eff] text-white font-bold sm:py-3 py-2 sm:px-6 px-4 sm:text-[16px] text-[14px] rounded-xl hover:bg-[#915eff]/20 transition-colors'>
-              Hire me
-            </a>
-            <a href='https://github.com/sherifftaha' target='_blank' rel='noopener noreferrer' className='sm:inline-block hidden text-secondary hover:text-white font-medium py-3 px-2 transition-colors'>
-              GitHub &rarr;
-            </a>
-          </div>
-        </div>
+const Hero = () => (
+  <section id="top" className="container-page grid items-center gap-8 pb-12 pt-8 sm:pt-14 lg:grid-cols-[1.2fr_1fr] lg:gap-[72px] lg:pb-20 lg:pt-[72px]">
+    <div>
+      <p className="text-[14px] font-medium tracking-[0.02em] text-brand">{profile.role}</p>
+      <h1 className="mt-4 text-[33px] font-semibold leading-[1.14] tracking-[-0.02em] sm:text-[44px] lg:mt-5 lg:text-[52px]">
+        The right system, <span className="highlight">prescribed</span> for how your business works.
+      </h1>
+      <p className="mt-4 max-w-[520px] text-[16px] leading-[1.75] sm:text-[18px] lg:mt-6">
+        I spent years in hospital pharmacy, where a wrong process has real consequences. I bring the same care to
+        Odoo: diagnose first, then configure, then build the custom modules myself.
+      </p>
+      <div className="mt-6 flex flex-wrap gap-3 sm:gap-[14px] lg:mt-[34px]">
+        <a href="#case-studies" className="btn-primary">See case studies</a>
+        <a href="#contact" className="btn-secondary">Get in touch</a>
       </div>
-      <ComputersCanvas />
+    </div>
 
-      <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>
-        <a href='#about'>
-          <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2 '>
-            <motion.div
-              animate={{
-                y: [0, 24, 0]
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: 'loop'
-              }}
-              className='w-3 h-3 rounded-full bg-secondary mb-1'
-            />
-          </div>
-        </a>
+    <aside className="card overflow-hidden shadow-card" aria-label="Profile summary">
+      <div className="flex justify-between border-b border-line bg-tint px-[22px] py-[14px] font-mono text-[12px] tracking-[0.06em] text-body">
+        <span>PROFILE LABEL</span>
+        <span>No. 001</span>
       </div>
-    </section>
-  )
-}
+      <p className="px-[22px] pb-1 pt-5 text-[25px] font-semibold text-ink sm:text-[30px]">
+        Rx <span className="text-plum">Odoo</span>
+      </p>
+      <dl className="px-[22px] pb-[14px] pt-[6px]">
+        {label.map((row) => (
+          <div key={row.term} className="grid grid-cols-[96px_1fr] border-b border-[#edf1ef] py-[11px] text-[14px] last:border-0 sm:grid-cols-[110px_1fr] sm:py-[13px] sm:text-[15px]">
+            <dt className="text-muted">{row.term}</dt>
+            <dd className="font-medium text-ink">{row.value}</dd>
+          </div>
+        ))}
+      </dl>
+      <p className="border-t border-line bg-[#fafbfa] px-[22px] py-[14px] text-[13px] text-body">
+        Use: requirements → implementation → custom development
+      </p>
+    </aside>
+  </section>
+);
 
-export default Hero
+export default Hero;

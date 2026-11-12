@@ -1,137 +1,117 @@
-import { useState, useRef } from "react"
-import { motion } from 'framer-motion'
-import emailjs from '@emailjs/browser'
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import { profile } from "../data";
 
+const EMAILJS = {
+  service: "service_9on1k5r",
+  template: "template_u6g7kqw",
+  publicKey: "WGAYBiKP9h1P3dIsC",
+};
 
-import { styles } from '../styles'
-import { EarthCanvas } from './canvas'
-import { SectionWrapper } from '../hoc'
-import { slideIn } from '../utils/motion'
-
-// WGAYBiKP9h1P3dIsC
-// template_u6g7kqw
-// service_9on1k5r
+const empty = { name: "", email: "", message: "" };
+const inputClass =
+  "mt-2 w-full rounded-[10px] border border-line bg-white px-4 py-3 text-[16px] text-ink placeholder:text-muted focus:border-brand focus:outline-none focus:ring-2 focus:ring-mint";
 
 const Contact = () => {
-  const fromRef = useRef()
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
-  const [loading, setLoading] = useState(false)
+  const [form, setForm] = useState(empty);
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
 
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setForm({ ...form, [name]: value })
-  }
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setForm({ ...form, [name]: value });
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setLoading(true)
-    emailjs.send(
-      'service_9on1k5r',
-      'template_u6g7kqw',
-      {
-        from_name: form.name,
-        to_name: 'Sherif Taha',
-        from_email: form.email,
-        to_email: 'Sherif.taha.hamed@gmail.com',
-        message: form.message
-      },
-      'WGAYBiKP9h1P3dIsC'
-    )
-      .then(() => {
-        setLoading(false)
-        alert('Thank you for your message, I will get back to you as soon as possible')
-        setForm({
-          name: '',
-          email: '',
-          message: ''
-        })
-      }), (error) => {
-        setLoading(false)
-        console.log(error)
-        alert('Something went wrong, please try again later')
-      }
-  }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setStatus("sending");
+    try {
+      await emailjs.send(
+        EMAILJS.service,
+        EMAILJS.template,
+        {
+          from_name: form.name,
+          to_name: profile.name,
+          from_email: form.email,
+          to_email: profile.email,
+          message: form.message,
+        },
+        EMAILJS.publicKey
+      );
+      setForm(empty);
+      setStatus("sent");
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+    }
+  };
 
+  const links = [
+    { label: "Email", value: profile.email, href: `mailto:${profile.email}` },
+    profile.linkedin ? { label: "LinkedIn", value: "View profile", href: profile.linkedin } : null,
+    { label: "GitHub", value: "sherifftaha", href: profile.github },
+  ].filter(Boolean);
 
   return (
-    <div className="xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden ">
-      <motion.div
-        variants={slideIn('left', 'tween', 0.2, 1)}
-        className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
-      >
-        <p className={styles.sectionSubText}>Get in touch</p>
-        <h3 className={styles.sectionHeadText}>Contact.</h3>
+    <section id="contact" className="section border-t border-line bg-white">
+      <div className="container-page grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+        <div>
+          <p className="eyebrow">Contact</p>
+          <h2 className="section-title">Tell me what isn't working.</h2>
+          <p className="mt-4 max-w-[460px] text-[16px] leading-[1.75] sm:text-[18px]">
+            Hiring for an Odoo role, or need a system that fits your business? Send a short note and I'll reply
+            with next steps.
+          </p>
 
-        <form
-          ref={fromRef}
-          onSubmit={handleSubmit}
-          className="   mt-12 flex flex-col gap-8"
-        >
+          <dl className="mt-8 divide-y divide-line border-y border-line">
+            {links.map((link) => (
+              <div key={link.label} className="grid grid-cols-[96px_1fr] py-4 text-[16px]">
+                <dt className="text-muted">{link.label}</dt>
+                <dd>
+                  <a href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="break-all font-medium text-ink underline decoration-mint decoration-2 underline-offset-4 hover:decoration-brand">
+                    {link.value}
+                  </a>
+                </dd>
+              </div>
+            ))}
+            <div className="grid grid-cols-[96px_1fr] py-4 text-[16px]">
+              <dt className="text-muted">Location</dt>
+              <dd className="font-medium text-ink">{profile.location}</dd>
+            </div>
+          </dl>
 
+          {profile.cv ? (
+            <a href={profile.cv} download className="btn-secondary mt-6">Download CV</a>
+          ) : null}
+        </div>
 
-          <label htmlFor="" className="flex flex-col">
-            <span className='text-white font-medium mb-4'>
-              Your Name
-            </span>
-            <input
-              type="text"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              placeholder="What's your name?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
-            />
+        <form onSubmit={handleSubmit} className="rounded-2xl border border-line bg-paper p-5 sm:p-8">
+          <label className="block text-[15px] font-medium text-ink">
+            Your name
+            <input type="text" name="name" required autoComplete="name" value={form.name} onChange={handleChange} className={inputClass} />
+          </label>
+          <label className="mt-5 block text-[15px] font-medium text-ink">
+            Your email
+            <input type="email" name="email" required autoComplete="email" value={form.email} onChange={handleChange} className={inputClass} />
+          </label>
+          <label className="mt-5 block text-[15px] font-medium text-ink">
+            Message
+            <textarea name="message" required rows="6" value={form.message} onChange={handleChange} placeholder="What are you trying to fix or build?" className={inputClass} />
           </label>
 
-          <label htmlFor="" className="flex flex-col">
-            <span className='text-white font-medium mb-4'>
-              Your Email
-            </span>
-            <input
-              type="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              placeholder="What's your email?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
-            />
-          </label>
-
-          <label htmlFor="" className="flex flex-col">
-            <span className='text-white font-medium mb-4'>
-              Your Message
-            </span>
-            <textarea
-              rows='7'
-              name="message"
-              value={form.message}
-              onChange={handleChange}
-              placeholder="What do you want to say?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
-            />
-          </label>
-
-          <button
-            type="submit"
-            className="bg-tertiary py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary rounded-xl"
-          >
-            {loading ? 'Sending...' : 'Send'}
+          <button type="submit" disabled={status === "sending"} className="btn-primary mt-6 w-full disabled:opacity-60 sm:w-auto">
+            {status === "sending" ? "Sending…" : "Send message"}
           </button>
 
+          <p role="status" aria-live="polite" className="mt-4 min-h-[24px] text-[15px]">
+            {status === "sent" ? <span className="text-brand">Thanks, your message is on its way. I'll get back to you soon.</span> : null}
+            {status === "error" ? (
+              <span className="text-[#a33a2a]">The message didn't send. Please try again, or email me directly.</span>
+            ) : null}
+          </p>
         </form>
-      </motion.div>
-      <motion.div
-        variants={slideIn('right', 'tween', 0.2, 1)}
-        className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
-      >
-        <EarthCanvas />
-      </motion.div>
-    </div>
-  )
-}
+      </div>
+    </section>
+  );
+};
 
-export default SectionWrapper(Contact, 'contact')
+export default Contact;

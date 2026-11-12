@@ -1,25 +1,25 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx}"],
-  mode: "jit",
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
     extend: {
       colors: {
-        primary: "#050816",
-        secondary: "#aaa6c3",
-        tertiary: "#151030",
-        "black-100": "#100d25",
-        "black-200": "#090325",
-        "white-100": "#f3f3f3",
+        paper: "#f7f8f6",
+        ink: "#1b2927",
+        body: "#4d5e5a",
+        muted: "#7c8b87",
+        line: "#dbe3e0",
+        tint: "#eef5f2",
+        mint: "#cdeee4",
+        brand: { DEFAULT: "#0f7a66", dark: "#0b6252" },
+        plum: "#7a4a6d",
+      },
+      fontFamily: {
+        sans: ['"IBM Plex Sans"', "system-ui", "sans-serif"],
+        mono: ['"IBM Plex Mono"', "ui-monospace", "monospace"],
       },
       boxShadow: {
-        card: "0px 35px 120px -15px #211e35",
-      },
-      screens: {
-        xs: "450px",
-      },
-      backgroundImage: {
-        "hero-pattern": "url('/src/assets/herobg.png')",
+        card: "0 12px 32px -18px rgba(27, 41, 39, 0.25)",
       },
     },
   },

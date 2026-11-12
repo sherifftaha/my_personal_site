@@ -1,74 +1,40 @@
-import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component"
-import { motion } from "framer-motion"
+import { education, experience } from "../data";
 
-import 'react-vertical-timeline-component/style.min.css'
-
-import { styles } from '../styles'
-import { experiences } from '../constants'
-import { SectionWrapper } from '../hoc'
-import { textVariant } from '../utils/motion'
-
-const ExperienceCard = ({ experience }) => {
-  return (
-    <VerticalTimelineElement
-      contentStyle={{ background: '#1d1836', color: '#fff' }}
-      contentArrowStyle={{ borderRight: '7px solid  #232631' }}
-      date={experience.date}
-      iconStyle={{ background: experience.iconBg }}
-      icon={
-        <div className="flex justify-center items-center w-full h-full">
-          <img
-            src={experience.icon}
-            alt={experience.company_name}
-            className="w-[80%] h-[80%] object-contain"
-          />
-        </div>
-      }
-    >
+const Experience = () => (
+  <section id="experience" className="section border-t border-line bg-white">
+    <div className="container-page grid gap-10 lg:grid-cols-[0.8fr_1.6fr] lg:gap-16">
       <div>
-        <h3 className="text-white text-[24px] font-bold">
-          {experience.title}
-        </h3>
-        <p
-          className="text-secondary text-[16px] font-semibold"
-          style={{ marginTop: 0 }}
-        >
-          {experience.company_name}
+        <p className="eyebrow">Experience</p>
+        <h2 className="section-title">From the pharmacy counter to the system behind it.</h2>
+        <p className="mt-4 text-[16px] leading-[1.75] sm:text-[18px]">
+          Years of working inside real operations taught me to ask how the work is actually done before deciding
+          what the software should do.
         </p>
+
+        <h3 className="mt-10 text-[13px] font-semibold uppercase tracking-[0.05em] text-brand">Education</h3>
+        <ul className="mt-3 space-y-4">
+          {education.map((item) => (
+            <li key={item.title}>
+              <p className="text-[16px] font-medium text-ink">{item.title}</p>
+              <p className="text-[15px]">{item.text}</p>
+            </li>
+          ))}
+        </ul>
       </div>
-      <ul className="mt-5 list-disc ml-5 space-y-2 ">
-        {experience.points.map((point, index) => (
-          <li
-            key={`experience-point-${index}`}
-            className="text-white-100 text-[14px] pl-1 tracking-wider"
-          >
-            {point}
+
+      <ol className="relative border-l border-line">
+        {experience.map((job) => (
+          <li key={job.period} className="relative pb-9 pl-6 last:pb-0 sm:pl-8">
+            <span aria-hidden="true" className="absolute -left-[6px] top-[7px] h-[11px] w-[11px] rounded-full border-2 border-white bg-brand" />
+            <p className="font-mono text-[13px] text-muted">{job.period}</p>
+            <h3 className="mt-1 text-[19px] font-semibold">{job.title}</h3>
+            <p className="text-[15px] font-medium text-brand">{job.place}</p>
+            <p className="mt-2 max-w-[600px] text-[16px] leading-[1.7]">{job.text}</p>
           </li>
         ))}
-      </ul>
-    </VerticalTimelineElement>
-  )
+      </ol>
+    </div>
+  </section>
+);
 
-}
-
-const Experience = () => {
-  return (
-    <>
-      <motion.div
-        variants={textVariant()}
-      >
-        <p className={styles.sectionSubText}>What I have done so far</p>
-        <h2 className={styles.sectionHeadText}>Work Experience</h2>
-      </motion.div>
-      <div className="mt-20 flex flex-col ">
-        <VerticalTimeline>
-          {experiences.map((experience, index) => (
-            <ExperienceCard key={index} experience={experience} />
-          ))}
-        </VerticalTimeline>
-      </div>
-    </>
-  )
-}
-
-export default SectionWrapper(Experience, 'work')
+export default Experience;
